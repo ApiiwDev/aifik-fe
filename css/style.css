@@ -32,6 +32,8 @@ body {
 	width: 100%;
 	height: 100dvh;
 	background-image: url('../image/fik_blurred.jpg');
+	background-position: center;
+	background-size: cover;
 }
 
 .image_inner {
