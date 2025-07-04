@@ -400,7 +400,7 @@ body {
 .bold-response {
   font-weight: bold;
   color: #000;
-  background: var(--secondary);
+  background: var(--primary);
   border-radius: 5px;
   padding: 2px 5px;
 }
