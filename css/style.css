@@ -27,16 +27,6 @@ body {
 	display: none;
 }
 
-#bg{
-	position: absolute;
-	width: 100%;
-	height: 100dvh;
-	background-image: url('../image/fik_blurred.jpg');
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
 .image_inner {
 	width: 180px;
 	height: 180px;
@@ -56,48 +46,48 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: calc(50dvh - 94px);
-    position: relative;
+	position: relative;
 }
 
 .welcome {
 	position: absolute;
 	top: -100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #welcome_text {
 	position: relative;
 	display: inline-block;
 	z-index: 1;
-	mix-blend-mode: difference;	
+	mix-blend-mode: difference;
 	color: white;
 }
 
 #welcome_text::before {
-	content: '';
+	content: "";
 	position: absolute;
-	inset: -5px; /* padding simulasi semua sisi */
+	inset: -5px;
+	border-radius: 3px;
 	background: #f26522;
 	z-index: -1;
 	animation: move-bg 1s ease-in-out infinite alternate;
 }
 
 @keyframes move-bg {
-  0% {
-    transform: translateX(-3px);
-  }
-  100% {
-    transform: translateX(3px);
-  }
+	0% {
+		transform: translateX(-3px);
+	}
+	100% {
+		transform: translateX(3px);
+	}
 }
 
 .chat_container {
 	width: 100%;
 	display: flex;
-    height: 100%;
+	height: 100%;
 	max-height: calc(100vh - 140px);
 	flex-direction: column;
 	flex: 1;
@@ -126,14 +116,13 @@ body {
 	border-radius: 10px;
 	max-width: 400px;
 	word-wrap: break-word;
-	background-color: white;
+	background-color: var(--primary);
 	font-size: 12px;
 }
 
 .chat_blob p {
 	color: var(--text);
 }
-
 
 .user_space textarea {
 	background-color: var(--secondary);
@@ -171,7 +160,7 @@ body {
 	align-items: center;
 	gap: 10px;
 	position: relative;
-    flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 
 .switcher button {
@@ -184,8 +173,8 @@ body {
 	background: var(--secondary);
 	color: var(--text);
 	margin-right: 2px;
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 .switcher button:hover {
 	color: var(--text-hover);
@@ -193,12 +182,12 @@ body {
 }
 
 .switcher button .bx {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
 .switcher button[data-selected="true"] {
-    background: #76ABAE;
-    color: var(--secondary);
+	background: #76abae;
+	color: var(--secondary);
 }
 
 .inner_space .right-content {
@@ -331,120 +320,117 @@ body {
 }
 
 .notyf__icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .notyf__toast--lower .notyf__message {
-  color: black !important;
+	color: black !important;
 }
 
 .notyf__toast--success .notyf__message {
-  color: white !important;
+	color: white !important;
 }
 
 .wrapper-copy {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: end;
 }
 
 /* AI Response Text */
 
 /* Header 1 (Judul Utama) */
 .header-1-response {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: .5rem;
-  margin-bottom: 0.25rem;
-  color: #2c3e50;
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-top: 0.5rem;
+	margin-bottom: 0.25rem;
+	color: #2c3e50;
 }
 
 /* Garis bawah header */
 .header-hr {
-  border: none;
-  border-top: 2px solid #3498db;
-  width: 60px;
-  margin-bottom: 1rem;
+	border: none;
+	border-top: 2px solid #3498db;
+	width: 60px;
+	margin-bottom: 1rem;
 }
 
 /* Teks paragraf */
 .text-response {
-  font-size: .7rem;
-  line-height: 1.6;
-  color: #333;
-  margin-bottom: 1rem;
+	font-size: 0.7rem;
+	line-height: 1.6;
+	color: #333;
+	margin-bottom: 1rem;
 }
 
 .ul-response,
 .ol-response {
-  margin-left: 1.5rem;
-  padding-left: 0.5rem;
+	margin-left: 1.5rem;
+	padding-left: 0.5rem;
 }
 
 .ol-response {
-  list-style-type: decimal;
+	list-style-type: decimal;
 }
 
 .li-response {
-  margin-bottom: 0.4rem;
+	margin-bottom: 0.4rem;
 }
 
 .header-2-response {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.3rem;
-  color: #34495e;
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin-top: 1.5rem;
+	margin-bottom: 0.3rem;
+	color: #34495e;
 }
 
 .bold-response {
-  font-weight: bold;
-  color: #000;
-  background: var(--primary);
-  border-radius: 5px;
-  padding: 2px 5px;
+	font-weight: bold;
+	color: #000;
+	background: var(--secondary);
+	border-radius: 5px;
+	padding: 2px 5px;
 }
 
 .italic-response {
-  font-style: italic;
-  color: #555;
-  margin: 0 3px;
+	font-style: italic;
+	color: #555;
 }
 
 .swal2-mini {
-    width: 400px !important;
-    padding: 1rem !important;
+	width: 400px !important;
+	padding: 1rem !important;
 }
 
 .swal2-mini .swal2-popup {
-    background: transparent;
-    box-shadow: none;
+	background: transparent;
+	box-shadow: none;
 }
 
 .PhotoProfile {
-    width: 60px;
+	width: 60px;
 	height: 100%;
-    margin-right: 10px;
-    display: flex;
-    align-items: start;
-    justify-content: center;
+	margin-right: 10px;
+	display: flex;
+	align-items: start;
+	justify-content: center;
 }
 
 .PhotoProfileImage {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 50%;
 }
 
-
 .user_space {
-	background: white;
 	position: relative;
 	border-radius: 20px;
-    margin: 0 auto;
+	margin: 0 auto;
 	width: 50%;
 	padding: 10px;
 	display: flex;
@@ -453,7 +439,43 @@ body {
 	border: 0.5px solid;
 	border-color: var(--border);
 	transition: box-shadow 0.3s ease;
-    box-shadow: 1px 1px 5px var(--text);
+	box-shadow: 1px 1px 5px var(--text);
 	z-index: 1000;
-    
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95% !important;
+    }
+    .user_space {
+        width: 95% !important;
+    }
+    .chat_blob {
+        max-width: 150px !important;
+    }
+    .PhotoProfile {
+        width: 35px !important;
+    }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+    .container {
+        width: 90% !important;
+    }
+    .user_space {
+        width: 90% !important;
+    }
+    .chat_blob {
+        max-width: 250px !important;
+    }
+    .PhotoProfile {
+        width: 45px !important;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        width: 70% !important;
+    }
+    .user_space {
+        width: 70% !important;
+    }
 }
