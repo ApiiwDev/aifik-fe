@@ -437,6 +437,10 @@ body {
 	border-radius: 50%;
 }
 
+.h1 {
+	color: white;
+}
+
 .user_space {
 	position: relative;
 	border-radius: 20px;
@@ -451,6 +455,7 @@ body {
 	transition: box-shadow 0.3s ease;
 	box-shadow: 1px 1px 5px var(--text);
 	z-index: 1000;
+	background: #fff;
 }
 
 @media (max-width: 480px) {
