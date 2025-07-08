@@ -128,6 +128,7 @@ body {
 	word-wrap: break-word;
 	background-color: var(--primary);
 	font-size: 12px;
+	background: #fff;
 }
 
 .chat_blob p {
@@ -320,7 +321,7 @@ body {
 	font-size: 12px;
 	border: var(--border);
 	border-radius: 4px;
-	background-color: var(--secondary);
+	background-color: #f1f1f1;
 	cursor: pointer;
 	transition: background-color 0.2s;
 }
