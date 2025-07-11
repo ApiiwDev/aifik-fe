@@ -94,7 +94,7 @@ tbody tr.checked-row {
     background: transparent !important;
 }
 
-th button, .addData, .close-modal {
+th button, .addData, .addFile, .close-modal {
     width: 80px;
     height: 25px; 
     border: none;
@@ -299,4 +299,10 @@ th button, .addData, .close-modal {
 th p {
     margin: 0 auto;
     text-align: center;
+}
+.addGroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
 }
