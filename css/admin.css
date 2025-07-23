@@ -342,9 +342,10 @@ th p {
 	thead {
 		display: none; /* Hide header */
 	}
-	tbody td:first-child, tbody td:last-child {
-		display: none;
-	}
+  tbody td:first-child:not(.button_status),
+  tbody td:last-child:not(.button_status) {
+      display: none;
+  }
 	tbody tr {
 		margin: 7px;
 		border: 1px solid #ddd;
