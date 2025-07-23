@@ -710,7 +710,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             return true;
         } catch (err) {
-            console.log(err);
             notyf.error(err.message);
             return false;
         }
