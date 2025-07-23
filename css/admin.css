@@ -46,6 +46,7 @@ body {
     width: 100%;
     border: 1px solid var(--border);
     border-radius: 10px;
+    overflow-x: auto;
 }
 thead {
     background-color: var(--primary);
@@ -94,7 +95,7 @@ tbody tr.checked-row {
     background: transparent !important;
 }
 
-th button, .addData, .addFile, .close-modal {
+th button, .addData, .deleteData, .close-modal, .resetData {
     width: 80px;
     height: 25px; 
     border: none;
@@ -104,6 +105,15 @@ th button, .addData, .addFile, .close-modal {
     text-align: center;
     transition: background-color 0.3s ease, transform 0.2s ease;
     outline: none;
+}
+.deleteData {
+	display: none;
+}
+.resetData {
+	width: 40px !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 #selectAllData.partial-data-select, #seleAllLogs.partial-logs-select {
     background-color: #007bff; /* biru Bootstrap */
@@ -246,7 +256,6 @@ th button, .addData, .addFile, .close-modal {
   transform: scale(1.05);
 }
 
-
 .status-pending {
   color: #ffc107;
   background-color: #ffc10733;
@@ -275,7 +284,7 @@ th button, .addData, .addFile, .close-modal {
 
 .status-dismissed {
   color: #dc3545;
-  background-color: #ca798133;
+  background-color: #dc354533;
   border: 1px solid #dc3545;
   border-radius: 50px;
   width: 80px;
@@ -300,9 +309,81 @@ th p {
     margin: 0 auto;
     text-align: center;
 }
+
 .addGroup {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.selectable-data-row,
+.selectable-logs-row,
+.selectable-un-row {
+  padding: 0;
+  flex: 1 1 0;
+}
+
+@media screen and (max-width: 768px) {
+	.table-container {
+		border: none;
+	}
+	.deleteData {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.deleteData p {
+		margin: 0;
+	}
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+	thead {
+		display: none; /* Hide header */
+	}
+	tbody td:first-child, tbody td:last-child {
+		display: none;
+	}
+	tbody tr {
+		margin: 7px;
+		border: 1px solid #ddd;
+		padding: 10px;
+		background-color: #fff;
+		border-radius: 10px;
+	}
+
+	tbody td {
+		position: relative;
+		border: none;
+		border-bottom: 1px solid #eee;
+	}
+
+	tbody {
+		border-radius: 10px;
+        display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+	}
+  tbody td::before {
+      content: attr(data-label);
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-weight: bold;
+      color: #555;
+      white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 425px) {
+	tbody {
+		border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+	}
+
 }
