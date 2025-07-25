@@ -564,6 +564,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
+            console.log(response);
+
             return response.data.text;
              
         } catch (err) {
