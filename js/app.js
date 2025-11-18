@@ -599,6 +599,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const filteredTarget = target.toLowerCase().replace(/\s+/g, '_');
         const selectedButton = document.getElementById(`switcher_button_${filteredTarget}`);
+        
 
         if (selectedButton) {
             selectedButton.setAttribute('data-selected', 'true');
@@ -640,9 +641,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     voiceRequest.disabled = false;
                     user_input.disabled = false;
     
-                    chatContainer.innerHTML = `<div class='welcome'>
-                        <h1 id='welcome_text'></h1>
-                    </div>`;
+                    document.querySelector(".user_space").insertAdjacentHTML(
+                        "afterbegin",
+                        `<div class='welcome'>
+                            <h1 id='welcome_text'></h1>
+                        </div>`
+                    );
                     
                     requestAnimationFrame(() => {
                         checkTime();
