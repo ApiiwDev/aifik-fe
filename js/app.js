@@ -90,11 +90,44 @@ document.addEventListener("DOMContentLoaded", () => {
     const width = welcome.offsetWidth/2;
     welcome.style.left = `calc(50% - ${width}px)`;
 
-    function updateChatContainer(){
-        const US = document.querySelector(".user_space");
-        const container = document.querySelector('.container');
+    // function updateChatContainer(){
+    //     const US = document.querySelector(".user_space");
+    //     const container = document.querySelector('.container');
 
-        if (!US || !container) return;
+    //     if (!US || !container) return;
+
+    //     const heightMap = {
+    //         92: 110,
+    //         112: 128,
+    //         136: 153,
+    //         160: 177,
+    //         184: 200,
+    //         188: 205,
+    //     };
+
+    //     const userHeight = US.clientHeight;
+
+    //     const hasChatContent = container.querySelector('.ai_response') || container.querySelector('.self_request');
+        
+    //     if(document.querySelector('.welcome')){
+    //         document.querySelector('.container').style.minHeight = `calc(50dvh - 94px)`;
+    //         return;
+    //     }
+
+    //     // const offset = heightMap[userHeight] ?? 110;
+
+    //     // container.style.minHeight = `calc(100vh - ${offset}px)`;
+
+    //     if (hasChatContent) {
+    //         container.style.minHeight = `calc(100vh - ${userHeight}px)`;
+    //         return;
+    //     }
+
+    //     container.style.minHeight = `calc(100vh - 110px)`;
+    // }
+
+    function updateChatContainer(){
+        const user_space_height = user_space.clientHeight;
 
         const heightMap = {
             92: 110,
@@ -105,25 +138,18 @@ document.addEventListener("DOMContentLoaded", () => {
             188: 205,
         };
 
-        const userHeight = US.clientHeight;
+        const offset = heightMap[user_space_height];
 
-        const hasChatContent = container.querySelector('.ai_response') || container.querySelector('.self_request');
-        
         if(document.querySelector('.welcome')){
             document.querySelector('.container').style.minHeight = `calc(50dvh - 94px)`;
             return;
         }
 
-        // const offset = heightMap[userHeight] ?? 110;
-
-        // container.style.minHeight = `calc(100vh - ${offset}px)`;
-
-        if (hasChatContent) {
-            container.style.minHeight = `calc(100vh - ${userHeight}px)`;
-            return;
+        if (offset) {
+            document.querySelector('.container').style.minHeight = `calc(100vh - ${offset}px)`;
+        } else {
+            document.querySelector('.container').style.minHeight = `calc(100vh - 110px)`;
         }
-
-        container.style.minHeight = `calc(100vh - 110px)`;
     }
 
     const scrollToBottom = () => {
