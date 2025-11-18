@@ -106,15 +106,24 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const userHeight = US.clientHeight;
+
+        const hasChatContent = container.querySelector('.ai_response') || container.querySelector('.self_request');
         
         if(document.querySelector('.welcome')){
             document.querySelector('.container').style.minHeight = `calc(50dvh - 94px)`;
             return;
         }
 
-        const offset = heightMap[userHeight] ?? 110;
+        // const offset = heightMap[userHeight] ?? 110;
 
-        container.style.minHeight = `calc(100vh - ${offset}px)`;
+        // container.style.minHeight = `calc(100vh - ${offset}px)`;
+
+        if (hasChatContent) {
+            container.style.minHeight = `calc(100vh - ${userHeight}px)`;
+            return;
+        }
+
+        container.style.minHeight = `calc(100vh - 110px)`;
     }
 
     const scrollToBottom = () => {
@@ -565,7 +574,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            console.log(response);
 
             return response.data.text;
              
