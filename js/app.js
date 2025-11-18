@@ -91,7 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
     welcome.style.left = `calc(50% - ${width}px)`;
 
     function updateChatContainer(){
-        const user_space_height = user_space.clientHeight;
+        const US = document.querySelector(".user_space");
+        const container = document.querySelector('.container');
+
+        if (!US || !container) return;
 
         const heightMap = {
             92: 110,
@@ -102,18 +105,16 @@ document.addEventListener("DOMContentLoaded", () => {
             188: 205,
         };
 
-        const offset = heightMap[user_space_height];
-
+        const userHeight = US.clientHeight;
+        
         if(document.querySelector('.welcome')){
             document.querySelector('.container').style.minHeight = `calc(50dvh - 94px)`;
             return;
         }
 
-        if (offset) {
-            document.querySelector('.container').style.minHeight = `calc(100vh - ${offset}px)`;
-        } else {
-            document.querySelector('.container').style.minHeight = `calc(100vh - 110px)`;
-        }
+        const offset = heightMap[userHeight] ?? 110;
+
+        container.style.minHeight = `calc(100vh - ${offset}px)`;
     }
 
     const scrollToBottom = () => {
@@ -564,6 +565,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
+            console.log(response);
+
             return response.data.text;
              
         } catch (err) {
@@ -593,23 +596,23 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedButton.setAttribute('data-selected', 'true');
 
 
-            Swal.fire({
-                html: `
-                <img width="100%" src="assets/image/hing.gif"/>
-                `,
-                background: 'transparent',
-                backdrop: 'rgba(0, 0, 0, 0.4)',
-                showCloseButton: false,
-                showConfirmButton: false,
-                width: 600,
-                timer: 2000,
-                timerProgressBar: false,
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                  customClass: {
-                    popup: 'swal2-mini'
-                }
-            });
+            // Swal.fire({
+            //     html: `
+            //     <img width="100%" src="assets/image/hing.gif"/>
+            //     `,
+            //     background: 'transparent',
+            //     backdrop: 'rgba(0, 0, 0, 0.4)',
+            //     showCloseButton: false,
+            //     showConfirmButton: false,
+            //     width: 600,
+            //     timer: 2000,
+            //     timerProgressBar: false,
+            //     allowOutsideClick: false,
+            //     allowEscapeKey: false,
+            //       customClass: {
+            //         popup: 'swal2-mini'
+            //     }
+            // });
 
 
             sentButton.disabled = true;
@@ -710,6 +713,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             return true;
         } catch (err) {
+            console.log(err);
             notyf.error(err.message);
             return false;
         }
