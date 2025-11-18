@@ -666,13 +666,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     sentButton.disabled = false;
                     voiceRequest.disabled = false;
                     user_input.disabled = false;
-    
-                    document.querySelector(".user_space").insertAdjacentHTML(
-                        "afterbegin",
-                        `<div class='welcome'>
-                            <h1 id='welcome_text'></h1>
-                        </div>`
-                    );
                     
                     requestAnimationFrame(() => {
                         checkTime();
